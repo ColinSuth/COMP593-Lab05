@@ -8,10 +8,10 @@
             "name": "Script",
             "type": "python",
             "request": "launch",
-            "program": "script.py",
+            "program": "mainscript.py",
             "console": "integratedTerminal",
             "justMyCode": true,
-            "args": ["sport"]
+            "args": ["Colin"]
         }
     ]
 }
