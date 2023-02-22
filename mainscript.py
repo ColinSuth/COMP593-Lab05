@@ -4,13 +4,16 @@ from sys import argv
 
 def main():
     pokemon_name = argv[1]
-    print(f'Getting information for {pokemon_name}')
-    pokemon = search_for_pokemon(pokemon_name)
+    real, pokemon = search_for_pokemon(pokemon_name)
 
-    if pokemon:
+    if real:
         title, body_text = get_pokemon_data(pokemon_name, pokemon)
         paste_url = post_new_paste(title, body_text, '1M')
+        print(f'Getting information for {pokemon_name}... success')
         print(f'Posting new paste to PasteBin...\n{paste_url}')
+    else:
+        print(f'Getting information for {pokemon_name}...failure \nResponse code: 404 (Not Found)')
+
 
 def get_pokemon_data(pokemon_name, pokemon):
     title = f"{pokemon_name}'s abilities".capitalize()

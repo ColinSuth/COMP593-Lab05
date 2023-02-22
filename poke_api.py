@@ -8,8 +8,10 @@ def search_for_pokemon(pokedex_info):
     resp_msg = requests.get(pokedex)
     if resp_msg.ok:
         info = resp_msg.json()
-        return info
+        real = True
+        return info, real
     else:
-        print('Response code: 4040 (Not Found)')
-        return None
+        real = False
+        return None, real
+        
 print(search_for_pokemon('Ninetales'))
